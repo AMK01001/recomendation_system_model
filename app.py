@@ -5,7 +5,7 @@ warnings.filterwarnings("ignore")
 import streamlit as st
 import numpy as np
 import pandas as pd
-import lightfm as lf
+# import lightfm as lf
 import nmslib
 import pickle
 import scipy.sparse as sparse
@@ -13,6 +13,14 @@ import plotly.express as px
 
 # -----------------------------------------------------------------------------------------------------
 # Реализуем функции необходимые для работы приложения
+
+# Comente estas linhas se estiver usando lightfm
+# from lightfm import LightFM
+# from lightfm.evaluation import precision_at_k
+
+# Use alternativas como:
+from sklearn.neighbors import NearestNeighbors
+# ou outras bibliotecas de recomendação compatíveis
 
 @st.cache
 def read_files(folder_name='data'):
@@ -145,3 +153,4 @@ if option:
     )
     # Отображаем график в интерфейсе
     st.write(fig)
+    
